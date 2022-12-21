@@ -1,0 +1,27 @@
+﻿@model List<GorevAtama_Project.Entity.Personel>
+
+<a asp-action="PersonelEkle" asp-controller="Personel" class="btn btn-primary btn-sm mb-3">PersonelEkle</a>
+
+<table class="table table-bordered table-dark">
+    <tr>
+        <th>#</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>İşlem Ad</th>
+        <th>Düzenle</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.PersonelID</td>
+            <td>@item.PersonelAd</td>
+            <td>@item.PersonelSoyad</td>
+            <td>@item.Islem.IslemAd</td>
+            <td><a asp-action="PersonelDuzenle" asp-route-id="@item.PersonelID" asp-controller="Personel" class="btn btn-warning btn-sm">Personel Düzenle</a></td>
+            <td><a asp-action="PersonelSil" asp-route-id="@item.PersonelID" asp-controller="Personel" class="btn btn-danger btn-sm">Personel Sil</a></td>
+        </tr>
+    }
+</table>
+
+<a href="/Personel/PersonelAta" class="btn btn-success">Personel Ata</a>
